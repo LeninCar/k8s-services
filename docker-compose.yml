@@ -1,0 +1,16 @@
+version: "3.8"
+
+services:
+  apigw:
+    build:
+      context: ./apigw
+    ports:
+      - "8000:8000"
+    depends_on:
+      - serviciolenin
+
+  serviciolenin:
+    build:
+      context: ./serviciolenin
+    ports:
+      - "8001:8000"
