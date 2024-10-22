@@ -8,7 +8,7 @@ app = FastAPI()
 async def orquestar():
     async with httpx.AsyncClient() as client:
         try:
-            respuesta_a = await client.get("http://servicio-a-service/serviciolenin")
+            respuesta_a = await client.get("http://serviciolenin:8000/serviciolenin")
             data_a = respuesta_a.json()
         except httpx.RequestError:
             data_a = "El servicio de Lenin no está disponible"

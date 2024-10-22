@@ -1,0 +1,27 @@
+# serviciolenin-pod.yaml
+apiVersion: v1
+kind: Pod
+metadata:
+  name: serviciolenin
+  labels:
+    app: serviciolenin
+spec:
+  containers:
+  - name: serviciolenin
+    image: tu-imagen-serviciolenin # Reemplaza con el nombre de tu imagen de Docker
+    ports:
+    - containerPort: 8000
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: serviciolenin
+spec:
+  selector:
+    app: serviciolenin
+  ports:
+    - protocol: TCP
+      port: 8000
+      targetPort: 8000
+  type: ClusterIP
